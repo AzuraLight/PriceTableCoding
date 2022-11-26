@@ -1,0 +1,278 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 1 */
+html {
+    /*여백이 포함되는 것을 제거*/
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* 2 */
+body {
+    background-color: #60a9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 3 */
+.panel {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 100%;
+    /*범위에서 벗어 났을 때 너무 커지는 것을 방지*/
+    max-width: 960px;
+    display: flex;
+
+    /* 4. 모바일 레이아웃을 디폴트로 만들기 -> 큰화면은 그 다음 */
+    /* 모바일 기준으로 먼저 작성*/
+    flex-direction: column;
+
+    /* 5. 패널의 모든 콘텐츠를 가운데 정렬하기*/
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* 6. 각 섹션을 나눠 줄 테두리 추가*/
+.pricing-plan {
+    border-bottom: 1px solid #e1f1ff;
+}
+
+.pricing-plan:last-child {
+    border-bottom: none;
+}
+
+/* 7. 이미지에 여백주기*/
+.pricing-img {
+    margin-bottom: 25px;
+    max-width: 100%;
+}
+
+/* 8. 타이포그래피 수정*/
+.pricing-header {
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* 9. ul 간격 넣어주기*/
+.pricing-features {
+    margin: 50px 0 25px;
+    color: #016ff9;
+}
+
+/* 10. 각 컨텐츠의 아이템 선택하기*/
+.pricing-features-item {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 15px 0;
+    border-top: 1px solid #e1f1ff;
+}
+
+.pricing-features-item:last-child {
+    border-bottom: 1px solid #e1f1ff;
+}
+
+/* 11. 텍스트 수정 하기*/
+.pricing-price {
+    color: #016ff9;
+
+    /*span으로 작성했으니 덩어리가 되도록 블록화*/
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* 12. 앵커 태그를 가진 버튼 수정하기*/
+.pricing-button {
+    border: 1px solid #9dd1ff;
+    border-radius: 10px;
+    color: #348efe;
+
+    /*블록 요소에 다른 효과를 추가 하기 위해 인라인 블록화*/
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    margin: 25px 0;
+
+    /*14. button에 트랜지션 효과 추가*/
+    transform: background-color 200ms ease-in-out;
+}
+
+/*13. hover 기능 추가해주기*/
+.pricing-button:hover,
+.pricing-button:focus {
+    background-color: #e1f1ff;
+}
+
+/* 15. 조금 다르게 작동했으면 하는 요소 작성*/
+.pricing-button.is-featured {
+    background-color: #48aaff;
+    color: white;
+}
+
+.pricing-button.is-featured:hover,
+.pricing-button.is-featured:focus {
+    background-color: #269aff;
+    color: white;
+}
+
+/* 16. 대형 화면에 맞게 시각화 해주기
+중단점 800이나 900 정도에서 커지게*/
+
+@media (min-width : 900px) {
+    .panel {
+        /* 모바일에서 세로 였던 화면을 가로행으로*/
+        flex-direction: row;
+    }
+
+    /* 세로 화면에서 괜찮게 보이던 부분이 가로 화면에서는 이상하게 나오므로 border를 수정하기*/
+    .pricing-plan {
+        border-bottom: none;
+        border-right: 1px solid #e1f1ff;
+        padding: 25px 50px;
+    }
+
+    /* 마지막 부분의 외곽선은 지우기*/
+    .pricing-plan:last-child {
+        border-right: none;
+    }
+}
